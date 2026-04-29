@@ -92,7 +92,10 @@ This project unifies three core capabilities into a single platform:
 
 ## Dataset
 
-Source: **Olist Brazilian E-commerce Public Dataset**
+Source: [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) (Kaggle)
+
+**Note:** To run this project, download the dataset from Kaggle and place the raw CSV files into the `data/raw/` directory.
+
 
 | Table | Description |
 |-------|-------------|
