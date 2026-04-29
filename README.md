@@ -4,9 +4,9 @@
 > **Consolidated Platform**
 >
 > This project is a unified platform created by merging three previous specialized repositories:
-> 1. [**olist-etl-pipeline**](../../olist-etl-pipeline/README.md) — Robust data ingestion and validation.
-> 2. [**olist-ecommerce-data-analysis**](../../olist-ecommerce-data-analysis/README.md) — KPI modeling and structured analytics.
-> 3. [**ecommerce-ai-analytics-assistant**](../../ecommerce-ai-analytics-assistant/README.md) — LLM-powered natural language interface.
+> 1. [**olist-etl-pipeline**](https://github.com/Brightpmk/olist-etl-pipeline) — Robust data ingestion and validation.
+> 2. [**olist-ecommerce-data-analysis**](https://github.com/Brightpmk/Basic_data-analysis-project_00) — KPI modeling and structured analytics.
+> 3. [**ecommerce-ai-analytics-assistant**](https://github.com/Brightpmk/ecommerce-ai-analytics-assistant) — LLM-powered natural language interface.
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue)
