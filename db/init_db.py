@@ -3,9 +3,10 @@ from __future__ import annotations
 from pathlib import Path
 
 from sqlalchemy import create_engine, text
+from sqlalchemy.engine import URL
 
 
-def init_db(database_url: str, schema_path: str = "db/schema.sql") -> None:
+def init_db(database_url: str | URL, schema_path: str = "db/schema.sql") -> None:
     """Initialize the PostgreSQL database from the schema SQL file."""
     schema_sql = Path(schema_path).read_text(encoding="utf-8")
 

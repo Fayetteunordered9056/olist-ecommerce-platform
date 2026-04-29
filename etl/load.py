@@ -4,6 +4,7 @@ import pandas as pd
 from typing import Dict
 
 from sqlalchemy import create_engine, text
+from sqlalchemy.engine import URL
 
 
 # Table name mapping: internal key -> PostgreSQL table name
@@ -21,7 +22,7 @@ TABLE_NAME_MAP: Dict[str, str] = {
 }
 
 
-def load_to_postgres(database_url: str, cleaned: Dict[str, pd.DataFrame]) -> None:
+def load_to_postgres(database_url: str | URL, cleaned: Dict[str, pd.DataFrame]) -> None:
     """Load cleaned DataFrames into PostgreSQL, replacing existing data."""
     engine = create_engine(database_url)
 

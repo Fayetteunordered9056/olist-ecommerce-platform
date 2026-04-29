@@ -26,7 +26,7 @@ def main():
     tables = cfg["tables"]
     quality_report_path = cfg["paths"]["quality_report_path"]
 
-    database_url = str(Config.DATABASE_URL)
+    database_url = Config.DATABASE_URL
 
     logger.info("Starting ETL pipeline")
 
