@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import re
 
 import pandas as pd
 from sqlalchemy import create_engine, text
@@ -23,9 +24,9 @@ def get_engine() -> Engine:
 
 def enforce_limit(sql: str, max_rows: int = DEFAULT_MAX_ROWS) -> str:
     sql_clean = sql.strip().rstrip(";")
-    sql_lower = sql_clean.lower()
-
-    if " limit " in f" {sql_lower} ":
+    
+    # Use regex to check for LIMIT as a whole word, case-insensitive
+    if re.search(r"\bLIMIT\b", sql_clean, re.IGNORECASE):
         return sql_clean + ";"
 
     return f"{sql_clean} LIMIT {max_rows};"
